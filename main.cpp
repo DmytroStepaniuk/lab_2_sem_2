@@ -2,18 +2,13 @@
 #include <vector>
 using namespace std;
 
-template <typename T>
-inline T const &Max(T const &a, T const &b)
-{
-  return a < b ? b : a;
-}
 
 template <typename T>
 void Fillarr(vector <T> &arr, int count){
-    for(int i = 0; i < count; i++){
-      cout << "Enter the element number " << i << ":";
-      cin >> arr[i];
-    }
+  for(int i = 0; i < count; i++){
+    cout << "Enter the element number " << i << ":";
+    cin >> arr[i];
+  }
 }
 
 template <typename T>
@@ -27,39 +22,41 @@ void Showarr(vector <T> &arr, int count){
 
 template <typename T>
 void Sortbychoise(vector <T> &arr, int count){
-    for(int i = 0; i < count - 1; i++ ){
+  for(int i = 0; i < count - 1; i++ ){
     int min_ind = i;
-      for(int j = i + 1; j < count; j++){
-        if(arr[j] < arr[min_ind])
-          min_ind = j;
-      }
-      swap(arr[i], arr[min_ind]);
+
+    for(int j = i + 1; j < count; j++){
+      if(arr[j] < arr[min_ind])
+        min_ind = j;
+    }
+
+    swap(arr[i], arr[min_ind]);
   }
 }
 
 int main(){
-    int count;
-    cout << "Enter the number of elements:";
+  int count;
+  cout << "Enter the number of elements:";
 
-    cin >> count;
+  cin >> count;
 
-    vector<int> arr(count);
+  vector<int> arr(count);
 
-    cout << endl;
+  cout << endl;
 
-    Fillarr(arr, count);
+  Fillarr(arr, count);
 
-    cout << endl;
+  cout << endl;
 
-    cout << "Unsorted array:" << endl;
+  cout << "Unsorted array:" << endl;
 
-    Showarr(arr, count);
+  Showarr(arr, count);
 
-    Sortbychoise(arr, count);
+  Sortbychoise(arr, count);
 
-    cout << "Sorted: \n";
+  cout << "Sorted: \n";
 
-    Showarr(arr, count);
+  Showarr(arr, count);
 
-    return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }
